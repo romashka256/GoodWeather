@@ -91,11 +91,11 @@ public class MainActivityPresenter extends MvpPresenter<IMainActivityView> {
                         .filter(String::isEmpty)
                         .distinctUntilChanged()
                         .switchMap(q -> searchService.getSearchResult(q)
-                                .doOnError(throwable -> Log.e("setSearchObserver", throwable.getMessage()))
+                                .doOnError(Timber::e)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread()))
-                        .doOnError(throwable -> Log.e("setSearchObserver", throwable.getMessage()))
-                        .subscribe(result -> getViewState().showResult(result), throwable -> Timber.e(throwable)));
+                        .doOnError(Timber::e)
+                        .subscribe(result -> getViewState().showResult(result), Timber::e));
     }
 
 
@@ -115,14 +115,14 @@ public class MainActivityPresenter extends MvpPresenter<IMainActivityView> {
                     return curentContiditions.get(0);
                 })
                 .doOnNext(curentContiditions -> currentConditionsDao.insertCurrentCondition(curentContiditions))
-                .doOnError(throwable -> Log.e("getCurrentConditions", throwable.getMessage()))
+                .doOnError(Timber::e)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(curentContiditions -> {
                     this.curentContiditions = curentContiditions;
                     getViewState().showCurrentConditions(curentContiditions);
                     loadedState = true;
-                }, throwable -> Timber.e(throwable)));
+                }, Timber::e));
     }
 
     private void getHourlyForecast(String key) {

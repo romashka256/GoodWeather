@@ -16,6 +16,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
+import timber.log.Timber;
 
 public class LocationService {
 
@@ -38,23 +39,8 @@ public class LocationService {
         Disposable disposable = retrofit.create(LocationAPI.class).getLocation(Constants.APIKEY, geoPositionService.getLongitudeAndLatitude(), Constants.LANGUAGE)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnError(new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.e("getLocation", throwable.getMessage());
-                    }
-                })
-                .subscribe(new Consumer<Location>() {
-                    @Override
-                    public void accept(Location location) throws Exception {
-                        listener.OnLocationFound(location);
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.e("getLocation", throwable.getMessage());
-                    }
-                });
+                .doOnError(throwable -> Timber.e( throwable.getMessage()))
+                .subscribe(location -> listener.OnLocationFound(location), throwable -> Timber.e(throwable.getMessage()));
         mainActivityDisposablesManager.getCollection().add(disposable);
     }
 }

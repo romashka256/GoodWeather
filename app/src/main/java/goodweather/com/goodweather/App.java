@@ -6,6 +6,7 @@ import goodweather.com.goodweather.di.components.AppComponent;
 import goodweather.com.goodweather.di.components.DaggerAppComponent;
 import goodweather.com.goodweather.di.modules.ContextModule;
 import goodweather.com.goodweather.di.modules.DBModule;
+import timber.log.Timber;
 
 public class App extends Application {
 
@@ -14,6 +15,13 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        if(BuildConfig.DEBUG){
+            Timber.plant(new Timber.DebugTree());
+        }else{
+            Timber.plant(new ReleaseTree());
+        }
+
 
         sAppComponent = DaggerAppComponent.builder()
                 .dBModule(new DBModule(getApplicationContext()))

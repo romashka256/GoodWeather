@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
+
+    <RelativeLayout
+        android:id="@+id/nav_progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/nav_header_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/colorPrimary"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/nav_view_header_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/robotomedium"
+        android:maxLines="1"
+        android:text="Одесса"
+        android:textColor="@color/colorWhite"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toStartOf="@+id/nav_view_header_temp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nav_view_header_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/barlowthin"
+        android:text="6"
+        android:textColor="@color/colorWhite"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view_header_search"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/nav_view_header_metric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/barlowthin"
+        android:text="°C"
+        android:textColor="@color/colorWhite"
+        android:textSize="27sp"
+        app:layout_constraintStart_toEndOf="@+id/nav_view_header_temp"
+        app:layout_constraintTop_toTopOf="@+id/nav_view_header_temp" />
+
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/nav_view_header_search"
+        android:layout_width="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nav_view_header_city"
+        app:queryHint="Поиск местоположения"
+        app:submitBackground="@drawable/searchviewbackground" />
+
+</android.support.constraint.ConstraintLayout>

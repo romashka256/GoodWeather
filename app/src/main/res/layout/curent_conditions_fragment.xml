@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/main_temperture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:fontFamily="@font/barlowthin"
+        android:text="24"
+        android:textColor="@color/colorWhite"
+        android:textSize="104sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/main_temperture_mentric"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/barlowthin"
+        android:text="°C"
+        android:textColor="@color/colorWhite"
+        android:textSize="34sp"
+        app:layout_constraintStart_toEndOf="@+id/main_temperture"
+        app:layout_constraintTop_toTopOf="@+id/main_temperture" />
+
+    <TextView
+        android:id="@+id/main_temperture_realfeel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/barlowlightitalic"
+        android:text="RealFeel 22°"
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_temperture"
+        app:layout_constraintStart_toEndOf="@+id/main_temperture" />
+
+    <TextView
+        android:id="@+id/main_text_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/robotoregular"
+        android:text="Ясно"
+        android:textColor="@color/colorWhite"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="@+id/main_temperture"
+        app:layout_constraintTop_toBottomOf="@+id/main_temperture" />
+
+    <TextView
+        android:id="@+id/main_text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/robotoregular"
+        android:hint="Среда 18 Ноября"
+        android:text="Среда, 18 Ноября"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/main_text_weather"
+        app:layout_constraintTop_toBottomOf="@+id/main_text_weather" />
+
+
+    <LinearLayout
+        android:id="@+id/main_details_linear_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/main_text_date"
+        tools:layout_editor_absoluteX="34dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:id="@+id/main_pressure_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/main_pressure_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="772мм"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/main_pressure_text_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/main_pressure_text"
+                    android:layout_alignStart="@+id/main_pressure_text"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Давление"
+                    android:textColor="@color/colorAccent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/main_main_precipitation_text_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/main_cloudy_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="772мм"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/main_cloudy_text_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/main_cloudy_text"
+                    android:layout_alignStart="@+id/main_cloudy_text"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Облачность"
+                    android:textColor="@color/colorAccent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/main_cloudy_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/main_precipitation_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="772мм"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/main_precipitation_text_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/main_precipitation_text"
+                    android:layout_alignStart="@+id/main_precipitation_text"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Осадки"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:id="@+id/main_wind_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/main_wind_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="772мм"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/main_wind_text_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/main_wind_text"
+                    android:layout_alignStart="@+id/main_wind_text"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Ветер"
+                    android:textColor="@color/colorAccent" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/main_main_visibility_text_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/main_visibility_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="772мм"
+                    android:textColor="@color/colorWhite"
+                    android:layout_marginLeft="20dp" />
+
+                <TextView
+                    android:id="@+id/main_visibility_text_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/main_visibility_text"
+                    android:layout_alignStart="@+id/main_visibility_text"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Видимость"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/main_fastwind_block"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:id="@+id/main_fastwind_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="772мм"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/main_fastwind_text_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/main_fastwind_text"
+                    android:layout_alignStart="@+id/main_fastwind_text"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/robotoregular"
+                    android:text="Влажность"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/hourly_forecast_list"
+        android:layout_width="384dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_details_linear_block"/>
+
+</android.support.constraint.ConstraintLayout>
